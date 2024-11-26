@@ -40,7 +40,12 @@ const Login = () => {
               },
             ]}
           >
-            <Input allowClear maxLength={100} type="email" />
+            <Input
+              placeholder="Enter your email"
+              allowClear
+              maxLength={100}
+              type="email"
+            />
           </Form.Item>
           <Form.Item
             name={"password"}
@@ -52,7 +57,11 @@ const Login = () => {
               },
             ]}
           >
-            <Input.Password maxLength={100} type="email" />
+            <Input.Password
+              placeholder="Enter your password"
+              maxLength={100}
+              type="password"
+            />
           </Form.Item>
         </Form>
         <div className="row">
@@ -83,7 +92,7 @@ const Login = () => {
         <SocialLogin />
         <div className="mt-3 text-center">
           <Space>
-            <Text>Don't have an acount? </Text>
+            <Text type="secondary">Don't have an acount? </Text>
             <Link to={"/sign-up"}>Sign up</Link>
           </Space>
         </div>

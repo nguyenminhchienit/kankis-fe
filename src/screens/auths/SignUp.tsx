@@ -6,18 +6,22 @@ const { Title, Text, Paragraph } = Typography;
 const SignUp = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [form] = Form.useForm();
-  const handleLogin = (values: { email: string; password: string }) => {
+  const handleLogin = (values: {
+    name: string;
+    email: string;
+    password: string;
+  }) => {
     console.log(values);
   };
   return (
     <>
       <Card
         style={{
-          width: "50%",
+          width: "70%",
         }}
       >
         <div className="text-center">
-          <Title level={2}>Log in to your account</Title>
+          <Title level={2}>Create an account</Title>
           <Paragraph type="secondary">
             Welcome back! please enter your details
           </Paragraph>
@@ -35,11 +39,11 @@ const SignUp = () => {
             rules={[
               {
                 required: true,
-                message: "Please enter your email!!!",
+                message: "Please enter your name!!!",
               },
             ]}
           >
-            <Input allowClear />
+            <Input placeholder="Enter your name" allowClear />
           </Form.Item>
           <Form.Item
             name={"email"}
@@ -51,7 +55,12 @@ const SignUp = () => {
               },
             ]}
           >
-            <Input allowClear maxLength={100} type="email" />
+            <Input
+              placeholder="Enter your email"
+              allowClear
+              maxLength={100}
+              type="email"
+            />
           </Form.Item>
           <Form.Item
             name={"password"}
@@ -63,7 +72,11 @@ const SignUp = () => {
               },
             ]}
           >
-            <Input.Password maxLength={100} type="email" />
+            <Input.Password
+              placeholder="Enter your password"
+              maxLength={100}
+              type="password"
+            />
           </Form.Item>
         </Form>
         <div className="mt-4 mb-3">
