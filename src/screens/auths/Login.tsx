@@ -11,13 +11,16 @@ import {
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import SocialLogin from "./components/SocialLogin";
+import handleApi from "../../apis/handleApi";
 const { Title, Paragraph, Text } = Typography;
 const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isRemember, setIsRemember] = useState(false);
   const [form] = Form.useForm();
-  const handleLogin = (values: { email: string; password: string }) => {
+  const handleLogin = async (values: { email: string; password: string }) => {
     console.log(values);
+    const res = await handleApi("/auth/register", values, "post");
+    console.log(res);
   };
   return (
     <>
