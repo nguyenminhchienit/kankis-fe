@@ -1,4 +1,13 @@
-import { Button, Card, Checkbox, Form, Input, Space, Typography } from "antd";
+import {
+  Button,
+  Card,
+  Checkbox,
+  Form,
+  Image,
+  Input,
+  Space,
+  Typography,
+} from "antd";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import SocialLogin from "./components/SocialLogin";
@@ -18,6 +27,11 @@ const Login = () => {
         }}
       >
         <div className="text-center">
+          <Image
+            width={60}
+            preview={false}
+            src="https://res.cloudinary.com/dubz32w0z/image/upload/v1732695086/kankis/logo_odkwmb.png"
+          />
           <Title level={2}>Log in to your account</Title>
           <Paragraph type="secondary">
             Welcome back! please enter your details
