@@ -1,23 +1,46 @@
-import { Button, Card, Form, Image, Input, Space, Typography } from "antd";
+import {
+  Button,
+  Card,
+  Form,
+  Image,
+  Input,
+  message,
+  Space,
+  Typography,
+} from "antd";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import SocialLogin from "./components/SocialLogin";
+import handleApi from "../../apis/handleApi";
 const { Title, Text, Paragraph } = Typography;
 const SignUp = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [form] = Form.useForm();
-  const handleLogin = (values: {
-    name: string;
+
+  const handleRegister = async (values: {
     email: string;
     password: string;
+    name: string;
   }) => {
-    console.log(values);
+    setIsLoading(true);
+    try {
+      const res: any = await handleApi("/auth/register", values, "post");
+      console.log(res);
+      if (res.code) {
+        message.success(res.message);
+      }
+    } catch (error: any) {
+      message.error(error.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
+
   return (
     <>
       <Card
         style={{
-          width: "70%",
+          width: "80%",
         }}
       >
         <div className="text-center">
@@ -34,7 +57,7 @@ const SignUp = () => {
         <Form
           layout="vertical"
           form={form}
-          onFinish={handleLogin}
+          onFinish={handleRegister}
           disabled={isLoading}
           size="large"
         >
@@ -87,13 +110,14 @@ const SignUp = () => {
         <div className="mt-4 mb-3">
           <Button
             onClick={() => form.submit()}
+            loading={isLoading}
             type="primary"
             style={{
               width: "100%",
             }}
             size="large"
           >
-            Login
+            Sign Up
           </Button>
         </div>
         <SocialLogin />

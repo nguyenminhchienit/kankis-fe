@@ -1,7 +1,15 @@
 import React from "react";
 import "./App.css";
 import Router from "./routers/Router";
-import { ConfigProvider } from "antd";
+import { ConfigProvider, message } from "antd";
+
+message.config({
+  top: 30,
+  duration: 2,
+  maxCount: 3,
+  rtl: true,
+  prefixCls: "my-message",
+});
 
 function App() {
   return (

@@ -26,7 +26,7 @@ const Login = () => {
     <>
       <Card
         style={{
-          width: "70%",
+          width: "80%",
         }}
       >
         <div className="text-center">
@@ -90,7 +90,7 @@ const Login = () => {
               Remember for 30 days
             </Checkbox>
           </div>
-          <div className="col text-right">
+          <div className="col text-right d-flex flex-row-reverse">
             <Link to={"/"}>Forgot password?</Link>
           </div>
         </div>
